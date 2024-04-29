@@ -13,7 +13,8 @@ interface Item {
 })
 export class AppComponent {
 
-  items: Item[] = [];
+  title = "Proyecto";
+  /*items: Item[] = [];
   newItemName: string = '';
 
   addItem() {
@@ -31,6 +32,6 @@ export class AppComponent {
     if (index >= 0) {
       this.items.splice(index, 1);
     }
-  }
+  }*/
 
 }

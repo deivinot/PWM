@@ -1,0 +1,12 @@
+<div class = "m-4">
+  <h2>Lista</h2>
+  <li class="mt-2 mb-1" *ngFor="let item of items">
+    <button class="btn btn-success me-2" (click)="onSelectedProduct(item)" > {{item.name}}</button>
+    <p>{{item.description}}</p>
+
+  </li>
+  <app-food-item [selectedProduct]="selectedProduct" (productSelected)="receiveInformationFromChild($event)"></app-food-item>
+</div>
+
+
+<!-- (click)="onSelectedProduct(item)" -->
