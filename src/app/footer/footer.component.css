@@ -1,0 +1,26 @@
+/* between 360 px and 740 */
+/**Samsung Galaxy S8+**/
+
+
+:host{
+  height: 10%;
+  width: 100%;
+  bottom: 0;
+  background-color: #000000b8;
+  position: absolute;
+
+
+
+}
+#navFooter{
+  margin-top: 15px;
+  margin-left: 25%;
+  position: relative;
+
+
+}
+
+a.buttonFooter{
+  padding: 5%;
+
+}

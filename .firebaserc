@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "firstproyect-74fdb"
+  },
+  "targets": {
+    "firstproyect-74fdb": {
+      "hosting": {
+        "proyecto": [
+          "firstproyect-74fdb"
+        ]
+      }
+    }
+  }
+}
