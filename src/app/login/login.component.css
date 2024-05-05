@@ -1,0 +1,47 @@
+.login-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Asegura que el formulario esté por delante de otros elementos */
+  background-color: white;
+  padding: 40px; /* Aumento del tamaño del padding */
+  border-radius: 20px; /* Aumento del tamaño del borde redondeado */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Aumento del tamaño de la sombra */
+}
+
+.form-group {
+  margin-bottom: 25px; /* Aumento del tamaño del margen inferior */
+}
+
+.login-container h2 {
+  margin-top: 0;
+  margin-bottom: 30px; /* Aumento del tamaño del margen inferior */
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 90%; /* Aumento del tamaño del input */
+  padding: 12px; /* Aumento del tamaño del padding */
+  border: 2px solid #ccc; /* Aumento del tamaño del borde */
+  border-radius: 8px; /* Aumento del tamaño del borde redondeado */
+}
+
+button {
+  width: 100%;
+  padding: 12px; /* Aumento del tamaño del padding */
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 15px; /* Aumento del tamaño del margen inferior */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
