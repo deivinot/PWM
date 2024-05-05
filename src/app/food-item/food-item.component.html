@@ -1,8 +1,0 @@
-<p>{{ selectedProduct.name }} : {{selectedProduct.price}}</p>
-<form (ngSubmit)="pasar()" #itemForm = "ngForm" >
-  <input class ="me-2" name ="prueba" style="width: 400px" type = "text" value="{{ selectedProduct.description }}" [(ngModel)]="newDescription" >
-  <button type="submit" class="btn btn-primary">Actualizar</button>
-
-</form>
-
-
