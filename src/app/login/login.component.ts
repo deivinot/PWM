@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
+import {ItemsService} from "../services/items.service";
+import {AuthServiceService} from "../services/auth-service.service";
+import {ChangePageService} from "../services/change-page.service";
+
 
 @Component({
   selector: 'app-login',
@@ -11,23 +13,18 @@ export class LoginComponent {
   @Input() mail: string = '';
   @Input() password: string = '';
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) { }
+  constructor(private auth: AuthServiceService, private changePageService: ChangePageService){
+  this.mail = '';
+  this.password = '';
+  }
+
 
   login() {
     console.log(this.mail);
-    this.afAuth.signInWithEmailAndPassword(this.mail, this.password)
-      .then(() => {
-        console.log('Inicio de sesión exitoso');
-        // Aquí podrías redirigir al usuario a la página de inicio o realizar otras acciones necesarias
-        this.router.navigate(['/inicio']); // Por ejemplo, redirigir a la página de inicio
-      })
-      .catch(error => {
-        console.log('Error al iniciar sesión:', error.message);
-        // Aquí podrías mostrar un mensaje de error al usuario
-      });
+    this.auth.loginService(this.mail, this.password);
+
+
   }
 
-  register() {
-    // Lógica para manejar el registro de usuario
-  }
+
 }

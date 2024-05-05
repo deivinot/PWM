@@ -1,7 +1,9 @@
 import {Component, Input} from '@angular/core';
 import Item from "../interfases";
 import User from "../interfases";
+import Marca from "../interfases";
 import {ItemsService} from "../services/items.service";
+
 //import {UsersService} from "../services/users.service";
 @Component({
   selector: 'app-section',
@@ -10,7 +12,8 @@ import {ItemsService} from "../services/items.service";
 
 })
 export class SectionComponent {
-
+  num:number[]=[];
+  marcas:Marca[]=[];
   items: Item[]=[];
   users: User[]=[];
   @Input() title: string = '';
@@ -20,6 +23,10 @@ export class SectionComponent {
   }
 
   ngOnInit() {
+    this.itemService.getMarcas().subscribe(allItems => {
+      this.marcas = allItems;
+
+    });
 
     this.itemService.getItems().subscribe(allItems => {
       this.items = allItems; // Asignar los elementos devueltos al array this.items
@@ -34,16 +41,14 @@ export class SectionComponent {
     const r = this.rand();
     const espacio = document.getElementById(idEspacio);
 
-      if(this.title=="Marcas"){
+    if(this.title=="Marcas"){
+      console.log(this.marcas[r]);
       if (espacio) {
         const imagen = document.createElement('img');
-        imagen.src = this.items[r].imagen;
+        imagen.src = this.marcas[r].imagen;
         espacio.appendChild(imagen);
 
-        const nuevoDiv = document.createElement('div');
-        nuevoDiv.className = 'texto';
-        nuevoDiv.innerHTML = this.items[r].nombre + "<br>Puja Actual: " + this.items[r].precio + "€<br>Fecha de Finalización: " + this.items[r].fecha;
-        espacio.appendChild(nuevoDiv);
+
 
       }
     }
@@ -65,8 +70,16 @@ export class SectionComponent {
     }
   }
   rand(): number {
-    const tamañoLista = this.items.length;
-    return Math.floor(Math.random() * tamañoLista);
+    const tamañoLista = this.marcas.length;
+    let a: number;
+
+    do {
+      a = Math.floor(Math.random() * tamañoLista);
+    } while (this.num.includes(a));
+
+    this.num.unshift(a);
+
+    return a;
   }
 
 

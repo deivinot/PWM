@@ -10,8 +10,15 @@ export default interface Item{
 export default interface User{
   // id: number,
   mail: string,
-  password: string,
   name: string,
-  surname: string,
-  phone_number: number,
+  lastName: string,
+  phoneNumber: number,
+}
+
+export default interface Marca{
+  // id: number,
+  categoría: string,
+  imagen: string,
+  nombre: string,
+  url: string,
 }

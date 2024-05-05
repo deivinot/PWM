@@ -15,8 +15,17 @@ import { NavComponent } from './nav/nav.component';
 import { SectionComponent } from './section/section.component';
 import { LoginComponent } from './login/login.component';
 import { CategoriesComponent } from './categories/categories.component';
+import {AuthServiceService} from "./services/auth-service.service";
+
+
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import {environment} from "./enviroment";
+import { RegisterComponent } from './register/register.component';
+import { TypeComponent } from './type/type.component';
+
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -26,26 +35,22 @@ import { CategoriesComponent } from './categories/categories.component';
     NavComponent,
     SectionComponent,
     LoginComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    RegisterComponent,
+    TypeComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp({
-      "projectId": "firstproyect-74fdb",
-      "appId": "1:761511782041:web:42927daaa58622bb0fba08",
-      "storageBucket": "firstproyect-74fdb.appspot.com",
-      "apiKey": "AIzaSyCsxTV1XpylqE-pgAUDJ09iGu5NzKoO1oI",
-      "authDomain": "firstproyect-74fdb.firebaseapp.com",
-      "messagingSenderId": "761511782041"
-    })),
+    provideFirebaseApp(() => initializeApp (environment.firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     ReactiveFormsModule,
     FormsModule
-
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },AuthServiceService
+  ]
 })
 export class AppModule { }

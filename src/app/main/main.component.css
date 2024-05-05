@@ -1,6 +1,9 @@
 
 :host{
+  width: 100%;
   font-size: 2em;
   position: absolute;
-  margin-top:15%;
+  margin-top:12.2%;
+  background: linear-gradient(to bottom, lightyellow, lightblue);
 }
+

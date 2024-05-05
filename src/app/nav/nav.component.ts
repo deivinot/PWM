@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, output} from '@angular/core';
+import {ChangePageService} from "../services/change-page.service";
 
 @Component({
   selector: 'app-nav',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['../app.component.css', '../header/header.component.css', 'nav.component.css']
 })
 export class NavComponent {
+
+
+  constructor(private changePage : ChangePageService) {
+
+  }
+  changeNav(str:string){
+    this.changePage.change(str);
+  }
 
 }

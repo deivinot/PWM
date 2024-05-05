@@ -3,6 +3,7 @@ import {addDoc, collection, collectionData, Firestore, query, where} from "@angu
 import Item from "../interfases";
 import {map, Observable, of, switchMap} from "rxjs";
 import User from '../interfases';
+import Marca from "../interfases";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class ItemsService {
   getUsers(): Observable<User[]> {
     const itemRef = collection(this.firestore, 'user');
     return collectionData(itemRef, {idField: 'id'}) as Observable<Item[]>;
+  }
+  getMarcas(): Observable<Marca[]> {
+    const itemRef = collection(this.firestore, 'Marcas');
+    return collectionData(itemRef, {idField: 'id'}) as Observable<Marca[]>;
   }
 
   getItemsByCategory(categoria: string): Observable<any[]> {
