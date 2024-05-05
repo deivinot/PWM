@@ -8,11 +8,13 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { MainComponent } from './main/main.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ListaComponent } from './lista/lista.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { SectionComponent } from './section/section.component';
+import { LoginComponent } from './login/login.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SectionComponent } from './section/section.component';
     ListaComponent,
     FooterComponent,
     NavComponent,
-    SectionComponent
+    SectionComponent,
+    LoginComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,8 @@ import { SectionComponent } from './section/section.component';
     })),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [],

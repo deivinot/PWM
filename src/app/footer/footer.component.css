@@ -2,25 +2,18 @@
 /**Samsung Galaxy S8+**/
 
 
-:host{
-  height: 10%;
-  width: 100%;
+:host {
+  position: fixed;
   bottom: 0;
+  width: 100%;
   background-color: #000000b8;
-  position: absolute;
-
-
-
 }
-#navFooter{
+
+#navFooter {
   margin-top: 15px;
   margin-left: 25%;
-  position: relative;
-
-
 }
 
-a.buttonFooter{
+a.buttonFooter {
   padding: 5%;
-
 }

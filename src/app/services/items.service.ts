@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
 import {addDoc, collection, collectionData, Firestore, query, where} from "@angular/fire/firestore";
 import Item from "../interfases";
-import {Observable} from "rxjs";
+import {map, Observable, of, switchMap} from "rxjs";
+import User from '../interfases';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemsService {
 
-  constructor(private firestore: Firestore) { }
-
-  addItem(item:Item){
-  const itemRef=collection(this.firestore, 'items');
-  return addDoc(itemRef,item);
+  constructor(private firestore: Firestore) {
   }
-  getItems(): Observable<Item[]>{
+
+  addItem(item: Item) {
     const itemRef = collection(this.firestore, 'items');
+    return addDoc(itemRef, item);
+  }
+
+  getItems(): Observable<Item[]> {
+    const itemRef = collection(this.firestore, 'items');
+    return collectionData(itemRef, {idField: 'id'}) as Observable<Item[]>;
+  }
+
+  getUsers(): Observable<User[]> {
+    const itemRef = collection(this.firestore, 'user');
     return collectionData(itemRef, {idField: 'id'}) as Observable<Item[]>;
   }
 
@@ -24,6 +32,9 @@ export class ItemsService {
     const q = query(itemRef, where('categoria', '==', categoria));
     return collectionData(q, {idField: 'id'}) as Observable<Item[]>;
     //return this.firestore.collection('items', ref => ref.where('categoria', '==', categoria))
-     // .valueChanges({ idField: 'id' });
+    // .valueChanges({ idField: 'id' });
   }
+
+
+
 }

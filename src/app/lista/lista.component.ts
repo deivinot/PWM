@@ -10,15 +10,7 @@ import Item from "../interfases";
 export class ListaComponent {
   items: Item[];
   constructor(private itemService:ItemsService) {
-    this.items=[{
-      nombre:"",
-      descripcion:"",
-      precio:0,
-      imagen:"",
-      categoria:"",
-      fecha:""
-
-    }]
+    this.items=[]
   }
 
   ngOnInit(){
