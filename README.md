@@ -1,27 +1,35 @@
-# Proyecto
+PUM! Proyecto de pujas en línea
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+Descripción
+Este proyecto consiste en un sitio web de pujas en línea, donde los usuarios pueden explorar productos, marcas y realizar pujas en tiempo real. Utiliza una arquitectura de componentes basada en Angular, junto con servicios y interfaces para la gestión de datos.
 
-## Development server
+Componentes
+El proyecto consta de los siguientes componentes:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Header: Encabezado del sitio web, siempre presente en la parte superior de la página.
+Footer: Pie de página del sitio web, siempre presente en la parte inferior de la página.
+Section: Componente para mostrar secciones específicas del contenido, como productos, marcas, etc.
+Nav: Componente de navegación para explorar diferentes secciones del sitio.
+Main: Componente principal que muestra el contenido principal del sitio web.
+Login: Componente para iniciar sesión de los usuarios.
+Lista: Componente para mostrar listas de elementos, como productos o marcas.
+Interfases: Archivo que define las interfaces de datos utilizadas en el proyecto.
+Categories: Componente para mostrar y explorar categorías de productos o marcas.
+Interfaces
+El proyecto utiliza las siguientes interfaces para definir la estructura de los datos:
 
-## Code scaffolding
+Users: Interfaz que describe la estructura de los usuarios registrados en el sitio.
+Marcas: Interfaz que define la estructura de las marcas de productos.
+Items: Interfaz que especifica la estructura de los productos disponibles para la subasta.
+Servicio
+El servicio proporciona métodos para interactuar con la base de datos y obtener datos necesarios para mostrar en el sitio web. Algunas funciones destacadas del servicio son:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+getItems: Retorna la lista de productos disponibles para la subasta.
+getMarcas: Obtiene la lista de marcas disponibles en el sitio.
+getUsers: Recupera la lista de usuarios registrados en la plataforma.
+Funcionamiento
+Cuando se accede al sitio web, se muestra inicialmente el header y el footer en todas las páginas. La ruta por defecto dirige al componente Main, que a su vez muestra varias secciones con productos, marcas y otros contenidos almacenados en la base de datos.
 
-## Build
+Para iniciar sesión, los usuarios deben hacer clic en el icono de usuario en el header, lo que despliega un formulario de inicio de sesión. También se proporciona la opción de registro para nuevos usuarios.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Este README proporciona una visión general del proyecto y sus componentes principales. Para más detalles sobre la implementación y funcionamiento de cada componente, consulte la documentación y el código fuente del proyecto.
