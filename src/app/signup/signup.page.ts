@@ -42,6 +42,7 @@ export class SignupPage implements OnInit {
     });
   }
 
+
   ngOnInit() {
     // this.signUP()
 
