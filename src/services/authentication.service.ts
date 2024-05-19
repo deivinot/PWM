@@ -24,8 +24,7 @@ export class AuthenticationService {
       //return error;
     }
   }
-  async registerService(email: string, password: string) {
-    try {
+  async registerService(email: string, password: string, name: string) {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       // Si el inicio de sesión es exitoso, redirige al usuario a la página de inicio
 
@@ -33,13 +32,7 @@ export class AuthenticationService {
       //this.router.navigate(['/']);
 
       //return result;
-    } catch (error) {
-      // Si hay un error, imprímelo en la consola y devuelve el error
-      console.error('Error al registrarse:', error);
-      alert("Se ha equivocado al registrarse");
 
-      //return error;
-    }
   }
   async singOut(){
     return await this.afAuth.signOut();
