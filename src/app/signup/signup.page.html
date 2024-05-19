@@ -12,14 +12,25 @@
   <form [formGroup]="ionicForm" novalidate>
     <div class="ion-padding">
       <ion-item>
-        <ion-input class="input" formControlName="fullname" placeholder="Fullname"></ion-input>
+        <ion-input class="input" formControlName="firstName" placeholder="firstName"></ion-input>
         <ion-icon slot="end" name="person-outline"></ion-icon>
       </ion-item>
-      <div *ngIf="errorControl['fullname'].touched && errorControl['fullname'].invalid" style="padding-top: -26px; padding-bottom: 16px;">
-        <ion-text *ngIf="errorControl['fullname'].errors?.['required']" class="errorInput" color="danger">
+      <div *ngIf="errorControl['firstName'].touched && errorControl['firstName'].invalid" style="padding-top: -26px; padding-bottom: 16px;">
+        <ion-text *ngIf="errorControl['firstName'].errors?.['required']" class="errorInput" color="danger">
           Fullname is required.
         </ion-text>
       </div>
+      <ion-item>
+        <ion-input class="input" formControlName="LastName" placeholder="LastName"></ion-input>
+        <ion-icon slot="end" name="person-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="errorControl['LastName'].touched && errorControl['LastName'].invalid" style="padding-top: -26px; padding-bottom: 16px;">
+        <ion-text *ngIf="errorControl['LastName'].errors?.['required']" class="errorInput" color="danger">
+          Fullname is required.
+        </ion-text>
+      </div>
+
+
 
       <ion-item>
         <ion-input class="input" formControlName="email" placeholder="Email"></ion-input>
@@ -48,7 +59,7 @@
       </div>
 
       <ion-item>
-        <ion-input class="input" type="tel" formControlName="contact" placeholder="Contact"></ion-input>
+        <ion-input class="input" type="tel" formControlName="contact" placeholder="Phone Number"></ion-input>
         <ion-icon slot="end" name="call-outline"></ion-icon>
       </ion-item>
       <div *ngIf="errorControl['contact'].touched && errorControl['contact'].invalid" style="padding-top: -26px; padding-bottom: 16px;">
@@ -59,11 +70,10 @@
           Contact should contain only numbers.
         </ion-text>
         <ion-text *ngIf="errorControl['contact'].errors?.['minlength']" class="errorInput" color="danger">
-          Contact should be at least 10 digits.
+          Contact should be at least 9 digits.
         </ion-text>
       </div>
 
-      <p>Or</p>
 
 
 

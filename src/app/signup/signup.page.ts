@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import {AuthenticationService} from "../../services/authentication.service";
+import User from "../../interfaces/interface";
+import {collection} from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-signup',
@@ -16,14 +18,17 @@ export class SignupPage implements OnInit {
 
   constructor(private toastController: ToastController,private loadingController: LoadingController,private authService:AuthenticationService,private router: Router, public formBuilder: FormBuilder) {
     this.ionicForm = this.formBuilder.group({
-      fullname:['',
+      firstName:['',
+        [Validators.required]
+      ],
+      LastName:['',
         [Validators.required]
       ],
       contact:['',
         [
           Validators.required,
           Validators.pattern("^[0-9]*$"),
-          Validators.minLength(10),
+          Validators.minLength(9),
           // Validators.min(10)
         ]
       ],
@@ -36,8 +41,8 @@ export class SignupPage implements OnInit {
       ],
       password: ['', [
         Validators.required,
-
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-8])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+        Validators.pattern("^[a-z]*$")
+        //Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-8])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
       ],
       ],
     });
@@ -64,35 +69,32 @@ export class SignupPage implements OnInit {
   // }
 
   async signUP(){
-    const loading = await this.loadingController.create();
-    await loading.present();
     if (this.ionicForm.valid) {
 
-      const user = await this.authService.registerService(this.ionicForm.value.email, this.ionicForm.value.password,this.ionicForm.value.fullname).catch((err) => {
-        this.presentToast(err)
+      await this.authService.registerService(this.ionicForm.value.email, this.ionicForm.value.password,this.ionicForm.value.fullname).catch((err) => {
         console.log(err);
-        loading.dismiss();
       })
 
       // @ts-ignore
-      if (user) {
-        loading.dismiss();
-        this.router.navigate(['/home'])
-      }
+      const newUser = {
+        mail: this.ionicForm.value.email,
+        name: this.ionicForm.value.firstName,
+        lastName: this.ionicForm.value.LastName,
+        phoneNumber: this.ionicForm.value.contact
+      };
+      // @ts-ignore
+      this.authService.addUser(newUser);
+
+
+
+
+
+      this.router.navigate(['/details'])
+
     } else {
       return console.log('Please provide all the required values!');
     }
   }
 
-  async presentToast(message: undefined) {
-    console.log(message);
 
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 1500,
-      position: 'top',
-    });
-
-    await toast.present();
-  }
 }

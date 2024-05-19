@@ -1,0 +1,38 @@
+{
+  "database": "favorites.db",
+  "version": 1,
+  "encrypted": false,
+  "mode": "full",
+  "tables": [
+    {
+      "name": "items",
+      "schema": [
+
+        {
+          "column": "nombre",
+          "value": "TEXT NOT NULL PRIMARY KEY"
+        },
+        {
+          "column": "descripcion",
+          "value": "TEXT NOT NULL"
+        },
+        {
+          "column": "precio",
+          "value": "TEXT NOT NULL"
+        },
+        {
+          "column": "imagen",
+          "value": "TEXT NOT NULL"
+        },
+        {
+          "column": "categoria",
+          "value": "TEXT NOT NULL"
+        },
+        {
+          "column": "fecha",
+          "value": "TEXT NOT NULL"
+        }
+      ]
+    }
+  ]
+}

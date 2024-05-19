@@ -6,7 +6,7 @@
   <form [formGroup]="ionicForm" novalidate>
     <div class="ion-padding">
       <ion-item>
-        <ion-input placeholder="fullname" formControlName="email" class="input" />
+        <ion-input placeholder="email" formControlName="email" class="input" />
         <ion-icon name="person-outline"></ion-icon>
 
       </ion-item>
@@ -27,13 +27,11 @@
           password is required.</ion-text>
       </div>
 
-      <div class="forgotpassword">
-        <a [routerLink]="['/forgot-password']" style="color: #FFC33F">Forgot Password?</a>
-      </div>
+
 
     </div>
     <div class="signupLink">
-      <p class="p">New memember? <a [routerLink]="['/signup']" style="color: #FFC33F">SignUp now</a></p>
+      <p class="p">New member? <a [routerLink]="['/signup']" style="color: #FFC33F">SignUp now</a></p>
     </div>
 
     <ion-fab *ngIf="ionicForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">

@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'signup',
+    redirectTo: 'login' ,
     pathMatch: 'full'
   },
   {
@@ -21,9 +21,14 @@ const routes: Routes = [
   },
 
   {
-    path: 'details',
+    path: 'details/:correo',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
+  {
+    path: 'details_item/:nombre',
+    loadChildren: () => import('./item-detail/item-detail.module').then( m => m.ItemDetailPageModule)
+  },
+
 
 
 ];
