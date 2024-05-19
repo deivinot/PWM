@@ -89,8 +89,7 @@ export class SignupPage implements OnInit {
 
 
 
-      this.router.navigate(['/details'])
-
+      this.router.navigate(['/details', this.ionicForm.value.email]);
     } else {
       return console.log('Please provide all the required values!');
     }
