@@ -1,0 +1,46 @@
+
+
+<ion-content [fullscreen]="false">
+    <ion-title size="large">login</ion-title>
+
+    <form [formGroup]="loginForm">
+      <div class="ion-padding">
+        <ion-item>
+          <ion-input formControlName="email" placeholder="email">
+          </ion-input>
+          <ion-icon name="person-outline">          </ion-icon>
+        </ion-item>
+        <div *ngIf="this.loginForm?.controls?.['email'].touched && this.loginForm?.controls?.['username'].invalid">
+          <ion-text *ngIf="getErrorControl.email.errors?.required">
+            Full name is required
+          </ion-text>
+        </div>
+
+        <ion-item>
+          <ion-input formControlName="password" placeholder="password">
+          </ion-input>
+          <ion-icon name="lock-closed-outline">          </ion-icon>
+        </ion-item>
+        <div *ngIf="this.loginForm?.controls?.['password'].touched && this.loginForm?.controls?.['password'].invalid">
+          <ion-text *ngIf="getErrorControl.password.errors?.required">
+            Full name is required
+          </ion-text>
+        </div>
+
+        <div>
+          <p>New member?  <a [routerLink]="['/sing-up']">Sign up</a></p>
+        </div>
+
+      </div>
+
+      <ion-fab vertical="bottom" horizontal="end" >
+        <ion-fab-button [routerLink]="['/home']">
+          <ion-icon name = "chevron-forward"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+
+    </form>
+
+
+</ion-content>
